@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Calculadora de IMC Online Gratis</title>
+
+  <style>
+    body {
+      font-family: Arial;
+      background: #f4f4f4;
+      text-align: center;
+      padding: 50px;
+    }
+
+    .container {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      max-width: 400px;
+      margin: auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    input, button {
+      padding: 10px;
+      margin: 10px;
+      width: 80%;
+    }
+
+    button {
+      background: green;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: darkgreen;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+  <h1>Calculadora de IMC</h1>
+
+  <p>Calcula tu Índice de Masa Corporal (IMC) de forma rápida y gratuita.</p>
+
+  <input type="number" id="peso" placeholder="Peso en kg">
+  <input type="number" id="altura" placeholder="Altura en cm">
+
+  <button onclick="calcularIMC()">Calcular IMC</button>
+
+  <h2 id="resultado"></h2>
+
+  <h3>¿Qué es el IMC?</h3>
+  <p>El Índice de Masa Corporal (IMC) es una medida que relaciona tu peso y altura para evaluar si tienes un peso saludable.</p>
+
+  <h3>¿Cómo se calcula?</h3>
+  <p>El IMC se calcula dividiendo el peso entre la altura al cuadrado.</p>
+</div>
+
+<script>
+function calcularIMC() {
+  const peso = document.getElementById("peso").value;
+  const altura = document.getElementById("altura").value / 100;
+
+  if (!peso || !altura) {
+    document.getElementById("resultado").innerText = "Introduce todos los valores.";
+    return;
+  }
+
+  const imc = peso / (altura * altura);
+  document.getElementById("resultado").innerText = "Tu IMC es " + imc.toFixed(2);
+}
+</script>
+
+</body>
+</html>
